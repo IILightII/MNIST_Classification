@@ -47,4 +47,8 @@ with tf.Session() as sess:
             sess.run(training_op, feed_dict={x: x_batch, y: y_batch})
         acc_train = accuracy.eval(feed_dict={x: x_batch, y: y_batch})
         acc_test = accuracy.eval(feed_dict={x: mnist.test.images, y: mnist.test.labels})
-        print(epoch, " Train accuracy: ", acc_train * 100, " Test accuracy: ", acc_test * 100)
+        print(epoch, " Train accuracy: ", acc_train * 100)
+        
+#Printing the Test accuracy
+acc_test = accuracy.eval(feed_dict={x: mnist.test.images, y: mnist.test.labels})
+print("Test accuracy: ", acc_test * 100)
