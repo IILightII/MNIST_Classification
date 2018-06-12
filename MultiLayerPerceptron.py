@@ -2,7 +2,7 @@
 import pandas as pd
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
-from tensorflow.contrib.layers import fully_connected
+from tensorflow.contrib.layers import fully_connected #fully_connected is a tensorflow function which creates a layer easily
 
 # Defining the dataset
 mnist = input_data.read_data_sets("MNIST_data/")
@@ -17,7 +17,7 @@ n_hidden1 = 300  # 300 nodes in the first hidden layer
 n_hidden2 = 100  # 100 nodes in the second hidden layer
 n_output = 10  # 10 nodes in the output layer since we have to predict '10' digits
 
-hidden1 = fully_connected(x, n_hidden1)
+hidden1 = fully_connected(x, n_hidden1) #If the activation_fn is not specified the default is taken as 'Relu'
 hidden2 = fully_connected(hidden1, n_hidden2)
 logits = fully_connected(hidden2, 10, activation_fn=None)
 
