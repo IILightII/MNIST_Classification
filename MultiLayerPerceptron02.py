@@ -23,14 +23,14 @@ stddev1 = 2 / np.sqrt(n_input)
 q1 = tf.truncated_normal([n_input, n_hidden1], stddev=stddev1)
 w1 = tf.Variable(q1)
 b1 = tf.Variable(tf.zeros([n_hidden1]))
-hidden1 = tf.nn.relu(tf.matmul(x, w1) + b1)
+hidden1 = tf.nn.elu(tf.matmul(x, w1) + b1) #Using Exponential Linear Unit(ELU) instead of ReLU as it outperforms all ReLU variants
 
 # 2nd Hidden Layer
 stddev2 = 2 / np.sqrt(n_hidden1)
 q2 = tf.truncated_normal([n_hidden1, n_hidden2], stddev=stddev2)
 w2 = tf.Variable(q2)
 b2 = tf.Variable(tf.zeros([n_hidden2]))
-hidden2 = tf.nn.relu(tf.matmul(hidden1, w2) + b2)
+hidden2 = tf.nn.elu(tf.matmul(hidden1, w2) + b2)
 
 # Output Layer
 stddev3 = 2 / np.sqrt(n_hidden2)
@@ -44,7 +44,7 @@ entropy = tf.nn.sparse_softmax_cross_entropy_with_logits(labels=y, logits=logits
 loss = tf.reduce_mean(entropy)
 
 # Optimizer
-learning_rate = 0.03
+learning_rate = 1
 optimizer = tf.train.GradientDescentOptimizer(learning_rate)
 training_op = optimizer.minimize(loss)
 
@@ -53,8 +53,8 @@ accuracy = tf.reduce_mean(tf.cast(correct, tf.float32))
 
 init = tf.global_variables_initializer()
 
-n_epochs = 400
-batch_size = 50
+n_epochs = 100
+batch_size = 500
 
 # Starting the Session
 with tf.Session() as sess:
