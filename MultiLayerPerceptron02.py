@@ -67,5 +67,5 @@ with tf.Session() as sess:
         print(epoch, " Train accuracy: ", acc_train * 100)
 
 # Test Accuracy
-acc_train = accuracy.eval(feed_dict={x: mnist.test.images, y: mnist.test.labels})
+acc_test = accuracy.eval(feed_dict={x: mnist.test.images, y: mnist.test.labels})
 print("Test accuracy: ", acc_test * 100)
