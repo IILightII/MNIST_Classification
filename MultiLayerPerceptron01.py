@@ -8,8 +8,8 @@ from tensorflow.contrib.layers import fully_connected #fully_connected is a tens
 mnist = input_data.read_data_sets("MNIST_data/")
 
 
-x = tf.placeholder(tf.float32, shape=(None, 28 * 28))  # As the dimensions of all the images are 28*28
-y = tf.placeholder(tf.int64, shape=(None))
+x = tf.placeholder(tf.float32, shape=[None, 28 * 28])  # As the dimensions of all the images are 28*28
+y = tf.placeholder(tf.int64, shape=[None])
 
 
 # Creating the hidden layers
