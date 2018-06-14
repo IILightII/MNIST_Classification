@@ -9,14 +9,14 @@ from tensorflow .examples.tutorials.mnist import input_data  # Importing the MNI
 mnist = input_data.read_data_sets("MNIST_data/")
 
 n_input = 28 * 28  # As the dimensions of all the images are 28*28
-x = tf.placeholder(tf.float32, shape=(None, n_input))
-y = tf.placeholder(tf.int64, shape=(None))
+x = tf.placeholder(tf.float32, shape=[None, n_input])
+y = tf.placeholder(tf.int64, shape=[None])
 
 n_output = 10  # As there are 10 digits (0-9)
 
 #Weights and biases
 stddev = 2 / np.sqrt(n_input)
-q = tf.truncated_normal((n_input, n_output), stddev=stddev)
+q = tf.truncated_normal([n_input, n_output], stddev=stddev)
 w = tf.Variable(q)
 b = tf.Variable(tf.zeros([n_output]))
 
