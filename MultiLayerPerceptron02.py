@@ -10,8 +10,8 @@ mnist = input_data.read_data_sets("MNIST_data/")
 
 n_input = 28 * 28  # As the dimensions of all the images are 28*28
 
-x = tf.placeholder(tf.float32, shape=(None, n_input))
-y = tf.placeholder(tf.int64, shape=(None))
+x = tf.placeholder(tf.float32, shape=[None, n_input])
+y = tf.placeholder(tf.int64, shape=[None])
 
 n_hidden1 = 300  # 300 nodes in the first hidden layer
 n_hidden2 = 100  # 100 nodes in the second hidden layer
