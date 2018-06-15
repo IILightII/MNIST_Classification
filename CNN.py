@@ -24,7 +24,7 @@ y = tf.placeholder(tf.int64, shape=[None])
 # Convolution
 w1 = tf.Variable(tf.truncated_normal([5, 5, 1, 32], stddev=0.1))  # shape is filter height x filter width x channels x output layers
 b1 = tf.constant(0.1, shape=[32])  # shape is output layers
-conv1 = tf.nn.relu(tf.nn.conv2d(input=x, filter=w1, strides=[1, 1, 1, 1], padding="SAME") + b1) # Convolution with the input as 'x' and #'w1' as the filter, padding="SAME" implies that the dimensions of the output layer are the same as those of the input layer
+conv1 = tf.nn.relu(tf.nn.conv2d(input=x, filter=w1, strides=[1, 1, 1, 1], padding="SAME") + b1) # Convolution with the input as 'x' and 'w1' as the filter, padding="SAME" implies that the dimensions of the output layer are the same as those of the input layer
 # Max Pooling
 pool1 = tf.nn.max_pool(conv1, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding="SAME")
 
