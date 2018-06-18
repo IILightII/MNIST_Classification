@@ -83,7 +83,7 @@ with tf.Session() as sess:
             sess.run(training_op, feed_dict={x: trainingInputs, y: trainingLabels, keep_prob: 0.5})
         acc_train = accuracy.eval(feed_dict={x: trainingInputs, y: trainingLabels, keep_prob: 1.0})
         print(epoch, " Train accuracy: ", acc_train * 100)
-
-# Printing the Test data accuracy
-acc_test = accuracy.eval(feed_dict={x: mnist.test.images.resahpe([-1, 28, 28, 1]), y: mnist.test.labels, keep_prob: 1.0})
-print("Test accuracy: ", acc_test * 100)
+        
+    # Printing the Test data accuracy
+    acc_test = accuracy.eval(feed_dict={x: mnist.test.images.resahpe([-1, 28, 28, 1]), y: mnist.test.labels, keep_prob: 1.0})
+    print("Test accuracy: ", acc_test * 100)
