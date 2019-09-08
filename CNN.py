@@ -9,10 +9,10 @@ mnist = input_data.read_data_sets("MNIST_data/")
 
 
 # In TensorFlow, each input image is typically represented as a 3D tensor of shape [height, width, channels]. A minibatch
-# is represented as a 4D tensor of shape [mini-batch size, height, width, channels]. The weights of a
-# convolutional layer are represented as a 4D tensor of shape [fh, fw, fn, fn']. The bias terms of a convolutional layer are simply
+# is represented as a 4D tensor of shape [mini-batch size, height, width, channels]. 
+#The weights of a convolutional layer are represented as a 4D tensor of shape [fh, fw, fn, fn']. The bias terms of a convolutional layer are simply
 # represented as a 1D tensor of shape [fn'].
-
+#fn is the number of channels in the input layer and fn' the number of channels in the output layer
 
 x = tf.placeholder(tf.float32, shape=[None, 28, 28, 1])  # shape in CNNs is always None x height x width x color channels
 # Here 'x' is a minibatch
